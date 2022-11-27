@@ -1,0 +1,36 @@
+﻿@using EmailSender.ViewModels
+@model List<ListEmailViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">@nameof(ListEmailViewModel.From)</th>
+            <th scope="col">@nameof(ListEmailViewModel.To)</th>
+            <th scope="col">@nameof(ListEmailViewModel.Title)</th>
+            <th scope="col">@nameof(ListEmailViewModel.Content)</th>
+            <th scope="col">
+                <a asp-controller="email" asp-action="add" class="btn btn-primary">Send new Email </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var email in Model)
+        {
+            <tr>
+                <th scope="row">@email.From</th>
+                <td>@email.To</td>
+                <td>@email.Title</td>
+                <td>@email.Content</td>
+                <td>
+                    @*<a asp-controller="employee" asp-action="update" asp-route-employeeCode="@employee.EmployeeCode" class="btn btn-secondary">Edit</a>
+                    <form method="POST" asp-controller="employee" asp-action="delete" asp-route-employeeCode="@employee.EmployeeCode" class="d-none" id="employee-delete-form-@employee.EmployeeCode">
+                    </form>*@
+                    @*<button type="submit" form="employee-delete-form-@employee.EmployeeCode" class="btn btn-danger">
+                        Delete
+                    </button>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
